@@ -26,13 +26,14 @@ jobs:
 
       - name: Set Git user identity
         run: |
-          git config --global user.name "Pri-shi"
-          git config --global user.email "priyamvadajoshii1@gmail.com"
+          git config --global user.name "${{ secrets.USER }}"
+
+          git config --global user.email "${{ secrets.USER }}@users.noreply.github.com"
 
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          gh-pages -d dist
+          gh-pages -d dist u ${{ secrets.GIT_HUB_TOKEN }}
 
 
 # name: Debug Workflow
