@@ -5,13 +5,6 @@ on:
     branches:
       - main # Change to your preferred branch name
 
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main # Change to your preferred branch name
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
