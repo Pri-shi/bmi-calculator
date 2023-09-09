@@ -1,33 +1,69 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
+
+# on:
+#   push:
+#     branches:
+#       - main # Change to your preferred branch name
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 14 # Change to your preferred Node.js version
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build the app
+#         run: npm run build
+
+#       - name: Deploy to GitHub Pages
+#         run: |
+#           git config --global user.name "${{ secrets.GITHUB_ACTOR }}"
+#           git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
+#           npm install -g gh-pages
+#           gh-pages -d build
+
+name: Debug Workflow
 
 on:
   push:
     branches:
-      - main # Change to your preferred branch name
+      - main
 
 jobs:
-  build-and-deploy:
+  debug:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List contents of the workspace directory
+        run: ls -R
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14 # Change to your preferred Node.js version
+          node-version: 14
 
       - name: Install dependencies
         run: npm install
 
+      - name: List contents of the build directory
+        run: ls -R build
+
       - name: Build the app
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.name "${{ secrets.GITHUB_ACTOR }}"
-          git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
-          npm install -g gh-pages
-          gh-pages -d build
+      - name: List contents of the build directory again
+        run: ls -R build
 
+      # Add additional steps to upload build artifacts or debug as needed.
