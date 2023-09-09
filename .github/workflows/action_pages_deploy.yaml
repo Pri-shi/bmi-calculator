@@ -24,10 +24,10 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      # - name: Deploy to GitHub Pages
-      #   run: |
-      #     git config --global user.name "${{ secrets.GITHUB_ACTOR }}"
-      #     git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
-      #     npm install -g gh-pages
-      #     gh-pages -d build
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.name "${{ secrets.GITHUB_ACTOR }}"
+          git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
+          npm install -g gh-pages
+          gh-pages -d build
 
