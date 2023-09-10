@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          gh-pages -d dist -u "Pri-shi priyamvadajoshii1@gmail.com"
+          gh-pages -d dist -u "Pri-shi <priyamvadajoshii1@gmail.com>"
 
 
 # name: Debug Workflow
