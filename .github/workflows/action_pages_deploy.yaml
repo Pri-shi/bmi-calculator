@@ -31,6 +31,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          git config --global user.name "Pri-shi"
+          git config --global user.email "priyamvadajoshii1@gmail.com"
+          git config --global url."git@gitlab.com:".insteadOf "https://gitlab.com/"
           npm install -g gh-pages
           gh-pages -d dist -u "Pri-shi <priyamvadajoshii1@gmail.com>"
 
